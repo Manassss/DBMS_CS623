@@ -34,7 +34,7 @@ public class main {
             stmt1.executeUpdate(updatestr);
             
           //TRANSACTION 4
-            String updatestr2= "UPDATE product SET prod_id='dd1' WHERE dep_id='d1'";
+            String updatestr2= "UPDATE depot SET dep_id='dd1' WHERE dep_id='d1'";
            
             stmt1.executeUpdate(updatestr2);
             
