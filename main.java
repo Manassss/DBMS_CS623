@@ -21,46 +21,54 @@ public class main {
             // Your code for database operations here
             
           //TRANSACTION 1
-            String updateString1 = "DELETE FROM product WHERE prod_id='p1'";
+            //String updateString1 = "DELETE FROM product WHERE prod_id='p1'";
             /* as prod_id is a foreign key in stock and there is on delete
             cascade property on the foreign key constraint , so if a specific product gets deleted from product it will be deleted from Stock as well*/
            // stmt1.executeUpdate(updateString1);
             
             //TRANSACTION 2
-            String updateString2= "DELETE FROM product WHERE dep_id='d1'";
+            //String updateString2= "DELETE FROM product WHERE dep_id='d1'";
             /* as dep_id is a foreign key in stock and there is on delete
             cascade property on the foreign key constraint , so if a specific dept gets deleted from depot it will be deleted from Stock as well*/
           //  stmt1.executeUpdate(updateString2);
             
             
             //TRANSACTION 3
-            String updateString3= "UPDATE product SET prod_id='pp1' WHERE prod_id='p1'";
-            /* as dep_id is a foreign key in stock and there is on update
-            cascade property on the foreign key constraint , so if a specific dept gets deleted from depot it will be deleted from Stock as well*/
-            stmt1.executeUpdate(updateString3);
+            String updatestr= "UPDATE product SET prod_id='pp1' WHERE prod_id='p1'";
+            /*
+            The `dep_id` column in the `stock` table serves as a foreign key with the
+            `ON UPDATE CASCADE` property. This ensures that if a department is deleted
+            from the `depot` table, the corresponding records in the `stock` table will
+            also be deleted automatically.
+         */
+            stmt1.executeUpdate(updatestr);
             
           //TRANSACTION 4
-            String updateString4= "UPDATE product SET prod_id='dd1' WHERE dep_id='d1'";
-            /* as dep_id is a foreign key in stock and there is on update
-            cascade property on the foreign key constraint , so if a specific dept gets deleted from depot it will be deleted from Stock as well*/
-            stmt1.executeUpdate(updateString4);
+            String updatestr2= "UPDATE product SET prod_id='dd1' WHERE dep_id='d1'";
+            /*
+            The `dep_id` column in the `stock` table acts as a foreign key with an
+            `ON UPDATE CASCADE` constraint. Consequently, when a department is deleted
+            from the `depot` table, the corresponding entries in the `stock` table will
+            also be automatically removed.
+         */
+            stmt1.executeUpdate(updatestr2);
             
             //TRANSACTION 5
-            String updateString5= "INSERT INTO product(prod_id,pname,price) VALUES('p100','cd',5)";
-            String updateString6="INSERT INTO stock(prod_id,dep_id,quantity) VALUES('p100','d2',50)";
+            //String updateString5= "INSERT INTO product(prod_id,pname,price) VALUES('p100','cd',5)";
+            //String updateString6="INSERT INTO stock(prod_id,dep_id,quantity) VALUES('p100','d2',50)";
             /* as dep_id is a foreign key in stock and there is on update
             cascade property on the foreign key constraint , so if a specific dept gets deleted from depot it will be deleted from Stock as well*/
-            stmt1.executeUpdate(updateString5);
-            stmt1.executeUpdate(updateString6);
+            //stmt1.executeUpdate(updateString5);
+            //stmt1.executeUpdate(updateString6);
             
           //TRANSACTION 6
           //TRANSACTION 5
-            String updateString7= "INSERT INTO depot(dep_id,addr,volume) VALUES('d100','Chicago',100)";
-            String updateString8="INSERT INTO stock(prod_id,dep_id,quantity) VALUES('p1','d100',100)";
+            //String updateString7= "INSERT INTO depot(dep_id,addr,volume) VALUES('d100','Chicago',100)";
+            //String updateString8="INSERT INTO stock(prod_id,dep_id,quantity) VALUES('p1','d100',100)";
             /* as dep_id is a foreign key in stock and there is on update
             cascade property on the foreign key constraint , so if a specific dept gets deleted from depot it will be deleted from Stock as well*/
-            stmt1.executeUpdate(updateString7);
-            stmt1.executeUpdate(updateString8);
+            //stmt1.executeUpdate(updateString7);
+            //stmt1.executeUpdate(updateString8);
             
             
             //if the transaction occurs succesfully then commit the updates to database
